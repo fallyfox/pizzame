@@ -13,6 +13,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40
+    marginTop: 40,
+    paddingVertical: 10,
+    backgroundColor:'#FFBC80',
+    flex:1
   },
 });
