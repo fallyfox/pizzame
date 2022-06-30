@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
 import { HomeScreen } from './architechure/screens/Homescreen';
+import Menu from './architechure/components/Menu';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <HomeScreen />
-      <StatusBar style="auto" />
-    </View>
+
+      <ExpoStatusBar style="auto" />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
-    paddingVertical: 10,
+    flex:1,
     backgroundColor:'#FFBC80',
-    flex:1
+    marginTop:StatusBar.currentHeight
   },
 });
