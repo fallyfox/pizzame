@@ -1,7 +1,6 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
-import { HomeScreen } from './architechure/screens/Homescreen';
-import Menu from './architechure/components/Menu';
+import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import {HomeScreen} from './architechure/screens/Homescreen';
 
 export default function App() {
   return (

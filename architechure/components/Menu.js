@@ -35,7 +35,15 @@ export function Menu () {
 const styles = StyleSheet.create({
     horDisplay: {
         flexDirection:'row',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        backgroundColor:'#fff',
+        padding:10,
+        position:'absolute',
+        borderTopRightRadius:20,
+        borderTopLeftRadius:20,
+        bottom:-30,
+        left:0,
+        right:0
     },
     icon: {
         width:60,
