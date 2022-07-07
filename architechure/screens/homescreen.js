@@ -4,7 +4,6 @@ import { useFonts, Lato_100Thin } from '@expo-google-fonts/lato';
 import { Header } from '../components/Header';
 import { Menu } from '../components/Menu';
 
-
 const data = {
     favourites: [
         { name: 'mozzarella', id: '1', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },

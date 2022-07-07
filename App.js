@@ -1,11 +1,14 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
-import {HomeScreen} from './architechure/screens/Homescreen';
+import { StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { AuthNavigator } from './architechure/components/AuthNavigator';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <HomeScreen />
+      <NavigationContainer>
+        <AuthNavigator />
+      </NavigationContainer>
 
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
@@ -19,3 +22,12 @@ const styles = StyleSheet.create({
     marginTop:StatusBar.currentHeight
   },
 });
+
+
+<table>
+  <tr>
+    <td>Data1</td>
+    <td>Data2</td>
+    <td>Data3</td>
+  </tr>
+</table>
