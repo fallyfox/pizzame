@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 
 export function Intro ({navigation}) {

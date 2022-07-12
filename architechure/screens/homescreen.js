@@ -6,11 +6,11 @@ import { Menu } from '../components/Menu';
 
 const data = {
     favourites: [
-        { name: 'mozzarella', id: '1', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
-        { name: 'parmesan', id: '2', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2497/premium/2497913.png?token=exp=1656594472~hmac=7c065c3ac82f4394166025fe725dcb8d' },
-        { name: 'provolone', id: '3', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
-        { name: 'blue cheese', id: '4', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
-        { name: 'broccoli', id: '5', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' }
+        { name: 'Mozzarella', price:3450, rating:3.2, id: '1', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
+        { name: 'Parmesan', price:3250, rating:2.4, id: '2', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2497/premium/2497913.png?token=exp=1656594472~hmac=7c065c3ac82f4394166025fe725dcb8d' },
+        { name: 'Provolone', price:2500, rating:4.9, id: '3', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
+        { name: 'Blue Cheese',price:4950, rating:4.1, id: '4', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
+        { name: 'Broccoli', price:3050, rating:1.2, id: '5', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' }
     ],
     bakersChoice: [
         { name: 'pancetta', id: '6', note: 'Made with the finest Italian ingredients', thumbnail: 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg' },
@@ -21,7 +21,7 @@ const data = {
     ]
 }
 
-export function HomeScreen() {
+export function HomeScreen({navigation}) {
     let [fontsLoaded] = useFonts({
         Lato_100Thin
     });
@@ -41,7 +41,14 @@ export function HomeScreen() {
                 <Text style={styles.popularHeadingText}>Polular topins</Text>
                 <FlatList data={data.favourites} renderItem={({ item }) => {
                     return (
-                        <TouchableOpacity style={styles.popularItem}>
+                        <TouchableOpacity style={styles.popularItem} onPress={ () => {
+                            navigation.navigate('Popular',{
+                                pizzaImg:item.thumbnail,
+                                pizzaName:item.name,
+                                pizzaRating:item.rating,
+                                pizzaPrice:item.price
+                            });
+                        } }>
                             <Image source={{ uri: item.thumbnail }} style={{ width: 60, height: 60 }} />
                             <Text style={styles.popularItemText}>{item.name}</Text>
                         </TouchableOpacity>

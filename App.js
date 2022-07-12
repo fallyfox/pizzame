@@ -9,7 +9,6 @@ export default function App() {
       <NavigationContainer>
         <AuthNavigator />
       </NavigationContainer>
-
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
   );
@@ -18,7 +17,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor:'#FFBC80',
+    // backgroundColor:'#FFBC80',
     marginTop:StatusBar.currentHeight
   },
 });
