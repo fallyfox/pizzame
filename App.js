@@ -22,12 +22,3 @@ const styles = StyleSheet.create({
     marginTop:StatusBar.currentHeight
   },
 });
-
-
-<table>
-  <tr>
-    <td>Data1</td>
-    <td>Data2</td>
-    <td>Data3</td>
-  </tr>
-</table>
