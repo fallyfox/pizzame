@@ -8,9 +8,9 @@ const data = {
     favourites: [
         { name: 'Mozzarella', price:3450, rating:3.2, id: '1', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
         { name: 'Parmesan', price:3250, rating:2.4, id: '2', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2497/premium/2497913.png?token=exp=1656594472~hmac=7c065c3ac82f4394166025fe725dcb8d' },
-        { name: 'Provolone', price:2500, rating:4.9, id: '3', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
-        { name: 'Blue Cheese',price:4950, rating:4.1, id: '4', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' },
-        { name: 'Broccoli', price:3050, rating:1.2, id: '5', thumbnail: 'https://cdn-icons.flaticon.com/png/512/2454/premium/2454219.png?token=exp=1656954610~hmac=205b712d391169cf1d932a9d0e7ba82a' }
+        { name: 'Provolone', price:2500, rating:4.9, id: '3', thumbnail: 'https://cdn-icons-png.flaticon.com/512/1384/1384676.png' },
+        { name: 'Blue Cheese',price:4950, rating:4.1, id: '4', thumbnail: 'https://cdn-icons-png.flaticon.com/512/2674/2674065.png' },
+        { name: 'Broccoli', price:3050, rating:1.2, id: '5', thumbnail: 'https://cdn-icons-png.flaticon.com/512/432/432339.png' }
     ],
     bakersChoice: [
         { name: 'pancetta', id: '6', note: 'Made with the finest Italian ingredients', thumbnail: 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg' },

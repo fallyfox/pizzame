@@ -14,7 +14,16 @@ export function AuthNavigator () {
             <Stack.Screen name='Profile' component={Profile} />
             <Stack.Screen name='Popular' component={Popular} options={{
                 headerShown:true,
-                title:'From Popular Pizzas'
+                title:'From Popular Pizzas',
+                headerStyle:{
+                    backgroundColor:'#65C18C'
+                },
+                headerTintColor:'#C1F4C5',
+                headerTitleStyle:{
+                    fontWeight:'bold',
+                    fontSize:20
+                },
+                headerBackTitle:'Go back'
                 }} 
             />
         </Stack.Navigator>
