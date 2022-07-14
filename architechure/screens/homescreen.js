@@ -1,8 +1,10 @@
 import { View, StyleSheet, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 import { Card, TextInput, Title, Paragraph, Button } from 'react-native-paper';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFonts, Lato_100Thin } from '@expo-google-fonts/lato';
 import { Header } from '../components/Header';
-import { Menu } from '../components/Menu';
+// import { Menu } from '../components/Menu';
+import { Profile } from './Profile';
 
 const data = {
     favourites: [
@@ -21,7 +23,7 @@ const data = {
     ]
 }
 
-export function HomeScreen({navigation}) {
+export function HomeScreen ({navigation}) {
     let [fontsLoaded] = useFonts({
         Lato_100Thin
     });
