@@ -4,7 +4,7 @@ export function Profile () {
     return (
         <View style={StyleSheet.container}>
             <View style={StyleSheet.bio}>
-                <Image />
+                <Image source={require('../../assets/images/user.jpeg')} style={styles.img} />
                 <Text>Jack Robinson</Text>
                 <Text>meetjoeblack@gmail.com</Text>
                 <Text>Edit Details + icon</Text>
@@ -35,6 +35,11 @@ export function Profile () {
 const styles = StyleSheet.create({
     container:{
 
+    },
+    img:{
+        width:80,
+        height:80,
+        borderRadius:50
     },
     bio: {
 

@@ -3,8 +3,11 @@ import { Card, TextInput, Title, Paragraph, Button } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFonts, Lato_100Thin } from '@expo-google-fonts/lato';
 import { Header } from '../components/Header';
-// import { Menu } from '../components/Menu';
+import { History } from './History';
+import { Customize } from './Customize';
 import { Profile } from './Profile';
+import { Notifications } from './Notifications';
+import { Ionicons } from '@expo/vector-icons';
 
 const data = {
     favourites: [
@@ -23,7 +26,7 @@ const data = {
     ]
 }
 
-export function HomeScreen ({navigation}) {
+function HomeScreen ({navigation}) {
     let [fontsLoaded] = useFonts({
         Lato_100Thin
     });
@@ -74,10 +77,45 @@ export function HomeScreen ({navigation}) {
                     );
                 }} key={({ item }) => { item.id }} />
             </View>
-
-            <Menu />
         </View>
     );
+}
+
+const Tab = createBottomTabNavigator();
+
+export function Home () {
+    return (
+        <Tab.Navigator 
+        screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+  
+              if (route.name === 'HomeScreen') {
+                iconName = focused ? 'home' : 'home-outline';
+              } else if (route.name === 'History') {
+                iconName = focused ? 'md-file-tray-stacked' : 'ios-file-tray-stacked-outline';
+              } else if (route.name === 'Customize') {
+                iconName = focused ? 'ios-logo-codepen' : 'ios-logo-codepen';
+              }else if (route.name === 'Profile') {
+                iconName = focused ? 'person-circle' : 'person-circle-outline';
+              }else if (route.name === 'Notifications') {
+                iconName = focused ? 'notifications-circle' : 'notifications-circle-outline';
+              }
+  
+              // You can return any component that you like here!
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: '#F76E11',
+            tabBarInactiveTintColor: 'gray',
+          })}
+        >
+            <Tab.Screen name='HomeScreen' component={HomeScreen} options={{headerShown:false}} />
+            <Tab.Screen name='History' component={History} />
+            <Tab.Screen name='Customize' component={Customize} options={{headerShown:false}}  />
+            <Tab.Screen name='Profile' component={Profile} />
+            <Tab.Screen name='Notifications' component={Notifications}  />
+        </Tab.Navigator>
+    )
 }
 
 const styles = StyleSheet.create({
