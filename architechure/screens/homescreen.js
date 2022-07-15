@@ -101,8 +101,7 @@ export function Home () {
               }else if (route.name === 'Notifications') {
                 iconName = focused ? 'notifications-circle' : 'notifications-circle-outline';
               }
-  
-              // You can return any component that you like here!
+
               return <Ionicons name={iconName} size={size} color={color} />;
             },
             tabBarActiveTintColor: '#F76E11',
