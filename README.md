@@ -24,3 +24,7 @@ Rocket, sliced fresh tomato, sliced pancetta
 Prawn, zucchini, basil, onion
 Ricotta, cherry tomato, baby spinach
 
+Pizza Customization
+a. pizza type 
+b. ingredients
+c. size
