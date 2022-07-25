@@ -1,0 +1,5 @@
+Todo
+1. Available sizes
+2. Billing based on selection
+3. Clear selection
+4. Google Map API
