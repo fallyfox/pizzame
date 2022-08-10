@@ -2,6 +2,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Intro } from '../screens/Intro';
 import { Home } from '../screens/Homescreen';
 import { Popular } from '../screens/Popular';
+import { Theme } from '../theme/Theme';
+import { Order } from '../screens/Order';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,16 +16,17 @@ export function AuthNavigator () {
                 headerShown:true,
                 title:'From Popular Pizzas',
                 headerStyle:{
-                    backgroundColor:'#65C18C'
+                    backgroundColor:Theme.colors.ui.success
                 },
-                headerTintColor:'#C1F4C5',
+                headerTintColor:'#fff',
                 headerTitleStyle:{
                     fontWeight:'bold',
-                    fontSize:20
+                    fontSize:Theme.points[3]
                 },
                 headerBackTitle:'Go back'
                 }} 
             />
+            <Stack.Screen name='Order' component={Order} options={{headerShown:true}} />
         </Stack.Navigator>
     )
 }

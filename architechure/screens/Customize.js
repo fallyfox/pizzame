@@ -4,13 +4,33 @@ import { Button } from "react-native-paper";
 import { pizzas } from "../../assets/data/pizzas";
 import { pizzaSizes } from "../../assets/data/pizzas";
 
-export function Customize ({route}) {
+export function Customize ({navigation,route}) {
     const [selected,setSelected] = useState({});
     const [total,setTotal] = useState(0);
+    const [selectedPizza, setSelectedPizza] = useState('');
+    const [ingredients, setIngredients] = useState([]);
+    const [sizeName,setSizeName] = useState('');
 
     function ProccedToDelivery (){
         if(total > 0){
-            return <Button mode="outlined" color="white" style={{marginTop:20,backgroundColor:'#064635'}} contentStyle={{paddingVertical:20}}>Continue to delivery</Button>
+            return <Button 
+                    mode="outlined" 
+                    color="white" 
+                    style={
+                        {marginTop:20,backgroundColor:'#064635'}} 
+                        contentStyle={{paddingVertical:20}
+                    }
+                    onPress={() => {
+                        navigation.navigate('Order',{
+                            orderTotal:total,
+                            orderPizzaName:selectedPizza,
+                            orderPizzaIngredients:ingredients,
+                            orderPizzaSize:sizeName
+                        });
+                    }}
+                    >
+                    Continue to delivery
+                    </Button>
         }
     }
 
@@ -22,7 +42,7 @@ export function Customize ({route}) {
             <View style={styles.billing}>
                 <Text style={styles.pizzaBillingTitle}>Pizza total</Text>
                 <Text style={styles.pizzaBillingValue}>NGN{total}</Text>
-                <Text style={styles.pizzaBillingTitle}>Formaggio with ingredients (sauce,olive oil)</Text>
+                <Text style={styles.pizzaBillingTitle}>{selectedPizza} with ingredients ({ingredients})</Text>
             </View>
 
             {/* select pizza to show ingredient */}
@@ -32,6 +52,7 @@ export function Customize ({route}) {
                     style={styles.selectedPizza}
                     onPress={() => {
                         setSelected(singlePizza.ingredients);
+                        setSelectedPizza(singlePizza.pizzaName)
                     }}
                     >
                         <Text style={styles.selectedTitle}>
@@ -48,6 +69,7 @@ export function Customize ({route}) {
                     style={[styles.pizza,{marginRight:Math.round(Math.random() * 100),marginLeft:Math.round(Math.random() * 100)}]}
                     onPress={() => {
                         setTotal(total + item.fee);
+                        setIngredients([ingredients,...item.ingreName,', ']);
                     }}
                     >
                         <Text style={styles.pizzaTitle}>{item.ingreName}</Text>
@@ -62,6 +84,7 @@ export function Customize ({route}) {
                         style={styles.sizeTouch}
                         onPress={() => {
                             setTotal(total + item.fee);
+                            setSizeName(item.sizeName);
                         }}
                     >
                         <Text style={styles.sizeTitle}>{item.sizeName}</Text>

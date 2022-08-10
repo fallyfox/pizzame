@@ -1,5 +1,5 @@
-import { View, StyleSheet, Image, Text, TouchableOpacity, FlatList } from 'react-native';
-import { Card, TextInput, Title, Paragraph, Button } from 'react-native-paper';
+import { View, StyleSheet, Image, Text,TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { Card, Title, Paragraph, Button } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFonts, Lato_100Thin } from '@expo-google-fonts/lato';
 import { Header } from '../components/Header';
@@ -8,6 +8,7 @@ import { Customize } from './Customize';
 import { Profile } from './Profile';
 import { Notifications } from './Notifications';
 import { Ionicons } from '@expo/vector-icons';
+import { Theme } from '../theme/Theme';
 
 const data = {
     favourites: [
@@ -37,8 +38,6 @@ function HomeScreen ({navigation}) {
 
             <TextInput
                 placeholder='search for a topin'
-                outlineColor='#FF9F45'
-                underlineColor='#F76E11'
                 style={styles.search}
             />
 
@@ -71,7 +70,10 @@ function HomeScreen ({navigation}) {
                             <Card.Content>
                                 <Title>{item.name}</Title>
                                 <Paragraph>{item.note}</Paragraph>
-                                <Button mode='contained' color='coral'>Order</Button>
+                                <Button 
+                                mode='contained' 
+                                color={Theme.colors.ui.secondary}
+                                >Order</Button>
                             </Card.Content>
                         </Card>
                     );
@@ -120,30 +122,36 @@ export function Home () {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 20
+        paddingHorizontal:Theme.points[3]
     },
     search: {
-        marginVertical: 20,
-        backgroundColor: '#FAEEE0'
+        marginTop: Theme.points[3],
+        paddingVertical:Theme.points[3],
+        paddingLeft:Theme.points[3],
+        borderWidth:1,
+        borderColor:Theme.colors.ui.secondary,
+        borderRadius:50,      
+        backgroundColor: '#fff',
+        fontSize:Theme.points[3]
     },
     popularHeadingText: {
-        fontSize: 20,
-        marginTop: 20,
-        marginBottom: 5
+        fontSize: Theme.points[4],
+        marginBottom: Theme.points[2],
+        marginTop: Theme.points[3],
     },
     popularItem: {
         width: 120,
         height: 120,
-        paddingVertical: 18,
-        paddingHorizontal: 18,
-        backgroundColor: '#FF9F45',
+        paddingVertical: Theme.points[2],
+        paddingHorizontal: Theme.points[2],
+        backgroundColor: Theme.colors.ui.secondary,
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: 15
+        marginRight: Theme.points[1]
 
     },
     popularItemText: {
-        color: '#4A403A',
+        color: Theme.colors.text.primary,
         fontWeight: 'bold'
     }
 });

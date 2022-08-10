@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         fontWeight:'bold'
     },
     btn:{
-        paddingVertical:18,
         marginHorizontal:20,
         marginBottom: 20
     }
