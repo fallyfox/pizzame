@@ -3,7 +3,10 @@ import { Intro } from '../screens/Intro';
 import { Home } from '../screens/Homescreen';
 import { Popular } from '../screens/Popular';
 import { Theme } from '../theme/Theme';
+import { Signup } from '../screens/Signup';
+import { Signin } from '../screens/Signin';
 import { Order } from '../screens/Order';
+import { Checkout } from '../screens/Checkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +15,8 @@ export function AuthNavigator () {
         <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
             <Stack.Screen name='Intro' component={Intro} />
             <Stack.Screen name='Home' component={Home} />
+            <Stack.Screen name='Signup' component={Signup} />
+            <Stack.Screen name='Signin' component={Signin} />
             <Stack.Screen name='Popular' component={Popular} options={{
                 headerShown:true,
                 title:'From Popular Pizzas',
@@ -27,6 +32,7 @@ export function AuthNavigator () {
                 }} 
             />
             <Stack.Screen name='Order' component={Order} options={{headerShown:true}} />
+            <Stack.Screen name='Checkout' component={Checkout} options={{headerShown:true}} />
         </Stack.Navigator>
     )
 }

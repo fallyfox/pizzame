@@ -28,7 +28,19 @@ export function Maps(){
             <MapView style={styles.map} provider={PROVIDER_GOOGLE} initialRegion={INITIAL_POSITION}/>
             <View style={styles.mapAutoComplete}>
                 <Title>Pick delivery point</Title>
-                <GooglePlacesAutocomplete placeholder='search' />
+                <GooglePlacesAutocomplete 
+                placeholder='search' 
+                query={{
+                    key:'AIzaSyAltTdZ5mgwXmOAdeDKLqKf8OfJovDQWBI',
+                    language:'en'
+                }}
+                fetchDetails={true}
+                enablePoweredByContainer={false}
+                onPress={(data,details = null) => {
+                    console.log(details.geometry.location.lat)
+                }}
+                minLength={2}
+                />
             </View>
         </View>
     )

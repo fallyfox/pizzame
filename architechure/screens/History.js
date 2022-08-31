@@ -1,8 +1,9 @@
-import *  as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { Theme } from '../theme/Theme';
+import { db } from '../../services/firebase';
+import { onSnapshot,doc } from 'firebase/firestore';
 
 const MyComponent = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -17,7 +18,7 @@ const MyComponent = () => {
 
 const data = {
     history: [
-        { order: 'Mozzarella Pizza', price: '13450', quantity: '3 boxes', date: '15th July 2022', id: '1', status: 'https://cdn-icons-png.flaticon.com/512/3472/3472620.png' },
+        { order: 'Mozzarella Pizz', price: '13450', quantity: '3 boxes', date: '15th July 2022', id: '1', status: 'https://cdn-icons-png.flaticon.com/512/3472/3472620.png' },
         { order: 'Pepperoni Pizza', price: '15450', quantity: '1 box(es)', date: '19th July 2022', id: '2', status: 'https://cdn-icons-png.flaticon.com/512/3472/3472620.png' },
         { order: 'Broccoli Pizza', price: '16450', quantity: '4 boxes', date: '11th August 2022', id: '3', status: 'https://cdn-icons-png.flaticon.com/512/3472/3472620.png' },
         { order: 'Permasan Pizza', price: '17850', quantity: '6 boxes', date: '20th August 2022', id: '4', status: 'https://cdn-icons-png.flaticon.com/512/929/929416.png' },
@@ -31,6 +32,13 @@ const data = {
 }
 
 export function History() {
+    // useEffect(() => {
+    //     onSnapshot(doc(db,'purchases','BUcOYFCanWi4ctOpmKTQ'),(doc) => {
+    //         console.log(doc.data());
+    
+    //     })
+    // },[])
+    
     return (
         <View>
             <ScrollView style={styles.container}>

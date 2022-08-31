@@ -1,8 +1,10 @@
 import { View, StyleSheet, Image, Text,TextInput, TouchableOpacity, FlatList } from 'react-native';
 import { Card, Title, Paragraph, Button } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { useFonts, Lato_100Thin } from '@expo-google-fonts/lato';
-import { Header } from '../components/Header';
+import { Pacifico_400Regular } from '@expo-google-fonts/pacifico';
 import { History } from './History';
 import { Customize } from './Customize';
 import { Profile } from './Profile';
@@ -29,12 +31,20 @@ const data = {
 
 function HomeScreen ({navigation}) {
     let [fontsLoaded] = useFonts({
-        Lato_100Thin
+        Lato_100Thin,
+        Pacifico_400Regular
     });
 
     return (
         <View style={styles.container} >
-            <Header />
+            <View style={styles.header}>
+                <View style={styles.brand}>
+                    <Text style={styles.brandName}>Pizzame</Text>
+                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
+                    <FontAwesomeIcon icon={faArrowRightToBracket} size={Theme.points[4]}/>
+                </TouchableOpacity>
+            </View>
 
             <TextInput
                 placeholder='search for a topin'
@@ -123,6 +133,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal:Theme.points[3]
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop:Theme.points[2]
+    },
+    brand: {
+        flexDirection:'row'
+    },
+    brandName: {
+        fontSize:Theme.points[4],
+        fontWeight:'bold',
+        fontFamily:'Pacifico_400Regular'
     },
     search: {
         marginTop: Theme.points[3],
