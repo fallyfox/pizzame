@@ -1,12 +1,13 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Intro } from '../screens/Intro';
-import { Home } from '../screens/Homescreen';
+import {Home} from '../screens/homescreen';
 import { Popular } from '../screens/Popular';
 import { Theme } from '../theme/Theme';
 import { Signup } from '../screens/Signup';
 import { Signin } from '../screens/Signin';
 import { Order } from '../screens/Order';
 import { Checkout } from '../screens/Checkout';
+import { Pay } from '../screens/Pay';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,7 @@ export function AuthNavigator () {
             />
             <Stack.Screen name='Order' component={Order} options={{headerShown:true}} />
             <Stack.Screen name='Checkout' component={Checkout} options={{headerShown:true}} />
+            <Stack.Screen name='Pay' component={Pay} options={{headerShown:true}} />
         </Stack.Navigator>
     )
 }
