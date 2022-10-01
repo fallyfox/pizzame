@@ -2,14 +2,16 @@ import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthNavigator } from './architechure/components/AuthNavigator';
+import { Signup } from './architechure/screens/Signup';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer>
+      {/* <NavigationContainer>
         <AuthNavigator />
       </NavigationContainer>
-      <ExpoStatusBar style="auto" />
+      <ExpoStatusBar style="auto" /> */}
+      <Signup />
     </SafeAreaView>
   );
 }

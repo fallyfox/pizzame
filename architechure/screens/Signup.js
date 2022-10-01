@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, Text, View, TouchableOpacity } from 'react-nativ
 import { Button } from 'react-native-paper';
 import { Theme } from '../theme/Theme';
 import { authentication } from '../../services/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, updateProfile } from 'firebase/auth';
 
 export function Signup({navigation}) {
     const [email,setEmail] = useState('');
@@ -11,7 +11,9 @@ export function Signup({navigation}) {
 
     function createUser(){
         createUserWithEmailAndPassword(authentication,email,password)
-        .then(userCredentials => console.log(userCredentials.user))
+        .then(() => onAuthStateChanged(authentication,(user) => {
+            const uid = user.uid;
+        }))
         .catch(error => console.error(error))
     }
 
